@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/ucs-exercise-aimelive/clientlibs"/>
+    <filter root="/apps/ucs-exercise-aimelive/components"/>
+    <filter root="/apps/ucs-exercise-aimelive/i18n"/>
+</workspaceFilter>
