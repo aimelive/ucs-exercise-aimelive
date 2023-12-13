@@ -1,0 +1,28 @@
+<div
+  class="footer__col"
+  data-sly-use.model="com.aimelive.ucs.core.models.SocialMediaModel"
+>
+  <div class="footer__socials">
+    <sly data-sly-list.item="${model.socialLinks}">
+      <a href="#">
+        <span class="${item.icon}"></span>
+      </a>
+    </sly>
+    <!--/* <a href="#">
+      <span class="icon-linkedin"></span>
+    </a>
+    <a href="#">
+      <span class="icon-youtube"></span>
+    </a>
+    <a href="#">
+      <span class="icon-instagram"></span>
+    </a>
+    <a href="#">
+      <span class="icon-facebook"></span>
+    </a> */-->
+  </div>
+  <div class="footer__utils">
+    <a href="#">${model.text1}</a>
+    <a href="#">${model.text2}</a>
+  </div>
+</div>

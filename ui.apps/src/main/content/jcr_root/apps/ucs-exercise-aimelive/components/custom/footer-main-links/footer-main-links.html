@@ -1,0 +1,14 @@
+<sly data-sly-use.model="com.aimelive.ucs.core.models.FooterLinksModel">
+  <div class="footer__mainLink">
+    <sly data-sly-list.item="${model.footerLinks}">
+      <a class="footer__link" href="${item.url}.html" target="${item.target}"
+        >${item.label}</a
+      >
+    </sly>
+    <!--/* <a href="#" class="footer__link">Contacts</a>
+    <a href="#" class="footer__link">Glossary</a>
+    <a href="#" class="footer__link">System Requirements</a>
+    <a href="#" class="footer__link">Site Map</a>
+    <a href="#" class="footer__link">FAQ</a> */-->
+  </div>
+</sly>

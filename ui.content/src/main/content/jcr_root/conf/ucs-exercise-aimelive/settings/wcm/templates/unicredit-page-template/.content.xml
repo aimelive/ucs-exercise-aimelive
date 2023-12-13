@@ -2,11 +2,11 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
-        cq:lastModified="{Date}2023-12-11T11:41:49.860+02:00"
+        cq:lastModified="{Date}2023-12-11T20:05:48.487+02:00"
         cq:lastModifiedBy="admin"
         cq:templateType="/conf/ucs-exercise-aimelive/settings/wcm/template-types/page"
         jcr:description="UniCredit Page Template exercise, this template will be used for all of the pages of the website available."
         jcr:primaryType="cq:PageContent"
         jcr:title="UniCredit Page Template"
-        status="draft"/>
+        status="enabled"/>
 </jcr:root>

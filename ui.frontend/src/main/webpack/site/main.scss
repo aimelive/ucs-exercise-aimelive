@@ -1,5 +1,10 @@
+@import './scss/variables';
+// @import './scss/mixins';
+@import './scss/base';
+// @import './scss/typography';
+@import './scss/fonts';
+@import './scss/icons';
+@import './scss/common';
 
-@import 'variables';
-@import 'base';
+
 @import '../components/**/*.scss';
-@import './styles/*.scss';
