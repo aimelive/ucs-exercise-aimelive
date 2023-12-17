@@ -1,5 +1,11 @@
 <sly data-sly-use.model="com.aimelive.ucs.core.models.FooterLinksModel">
   <div class="footer__mainLink">
+    <p
+      data-sly-test="${wcmmode.edit && model.footerLinks.size==0}"
+      class="footer__link"
+    >
+      NO FOOTER MAIN LINKS ADDED
+    </p>
     <sly data-sly-list.item="${model.footerLinks}">
       <a class="footer__link" href="${item.url}.html" target="${item.target}"
         >${item.label}</a

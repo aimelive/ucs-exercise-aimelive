@@ -14,7 +14,7 @@
                 <footerLink
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                composite="{Boolean}true">
+                composite="{Boolean}true" fieldLabel="Add Footer Last Links">
                 <field
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/container"

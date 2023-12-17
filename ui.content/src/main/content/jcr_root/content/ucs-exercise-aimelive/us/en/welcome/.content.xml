@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-12-15T15:50:00.215+02:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/ucs-exercise-aimelive/settings/wcm/templates/unicredit-page-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Welcome Page"
+        sling:resourceType="ucs-exercise-aimelive/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="ucs-exercise-aimelive/components/container"
+            layout="responsiveGrid">
+            <header
+                jcr:created="{Date}2023-12-11T14:10:01.330+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-12-15T15:43:20.962+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="ucs-exercise-aimelive/components/custom/header"
+                rootPath="/content/ucs-exercise-aimelive/us/en/welcome">
+                <navbarLink jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        elementClass="#"
+                        iconClassName="icon-contattaci2"
+                        label="CONTACT US"
+                        linkUrl="#"
+                        targetBlank="false"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        elementClass="#"
+                        iconClassName="icon-calendar"
+                        label="Good"
+                        linkUrl="#"
+                        targetBlank="false"/>
+                </navbarLink>
+            </header>
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="ucs-exercise-aimelive/components/container"
+                layout="responsiveGrid"/>
+            <footer
+                jcr:created="{Date}2023-12-11T14:10:14.435+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-12-11T14:10:14.435+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="ucs-exercise-aimelive/components/custom/footer">
+                <footer-lastLinks
+                    jcr:lastModified="{Date}2023-12-15T15:49:30.430+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="ucs-exercise-aimelive/components/custom/footer-last-links">
+                    <footerLink jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            label="First link"
+                            newTab="false"
+                            url="#"/>
+                    </footerLink>
+                </footer-lastLinks>
+                <footer-mainLinks
+                    jcr:lastModified="{Date}2023-12-15T15:49:43.568+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="ucs-exercise-aimelive/components/custom/footer-main-links">
+                    <footerLink jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            label="Other links"
+                            newTab="false"/>
+                    </footerLink>
+                </footer-mainLinks>
+                <social-media
+                    jcr:lastModified="{Date}2023-12-15T15:50:00.212+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="ucs-exercise-aimelive/components/custom/socialmedia"
+                    text1="Lorem ipsum"
+                    text2="ipsum">
+                    <socialMedia jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            icon="icon-twitter"
+                            url="#"/>
+                    </socialMedia>
+                </social-media>
+            </footer>
+        </root>
+    </jcr:content>
+    <about-us/>
+    <business/>
+    <governance/>
+    <one-unicredit/>
+    <services/>
+    <big-time/>
+</jcr:root>

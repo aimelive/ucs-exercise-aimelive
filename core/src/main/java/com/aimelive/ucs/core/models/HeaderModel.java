@@ -8,6 +8,8 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
@@ -31,6 +33,8 @@ public class HeaderModel {
     @SlingObject
     private ResourceResolver resourceResolver;
 
+    @Inject
+    private String rootPath;
 
     @PostConstruct
     protected void init() {
@@ -38,45 +42,48 @@ public class HeaderModel {
         PageManager pageManager;
         pageManager = resourceResolver.adaptTo(PageManager.class);
 
-        Page rootPage = pageManager.getPage("/content/ucs-exercise-aimelive/us/en/welcome");
-        if (rootPage == null)
-            return;
+        if (rootPath != null) {
+            Page rootPage = pageManager.getPage(rootPath);
+            if (rootPage == null)
+                return;
 
-        Iterable<Page> iterable = rootPage::listChildren;
+            Iterable<Page> iterable = rootPage::listChildren;
 
-        for (Page child : iterable) {
-            if (child.isHideInNav())
-                continue;
-            Iterable<Page> subIterable = child::listChildren;
-            MenuItemBean menuItemBean = new MenuItemBean();
-            menuItemBean.setTitle(child.getTitle());
-            menuItemBean.setPath(child.getPath());
-
-            menuItemBean.setName(child.getName());
-
-            List<MenuItemBean> subChildren = new ArrayList<>();
-
-            for (Page subChild : subIterable) {
-                if (subChild.isHideInNav())
+            for (Page child : iterable) {
+                if (child.isHideInNav())
                     continue;
-                MenuItemBean subMenuItemBean = new MenuItemBean();
-                subMenuItemBean.setTitle(subChild.getTitle());
-                subMenuItemBean.setPath(subChild.getPath());
-                subMenuItemBean.setName(subChild.getName());
+                Iterable<Page> subIterable = child::listChildren;
+                MenuItemBean menuItemBean = new MenuItemBean();
+                menuItemBean.setTitle(child.getTitle());
+                menuItemBean.setPath(child.getPath());
 
-                subChildren.add(subMenuItemBean);
+                menuItemBean.setName(child.getName());
+
+                List<MenuItemBean> subChildren = new ArrayList<>();
+
+                for (Page subChild : subIterable) {
+                    if (subChild.isHideInNav())
+                        continue;
+                    MenuItemBean subMenuItemBean = new MenuItemBean();
+
+                    subMenuItemBean.setTitle(subChild.getTitle());
+                    subMenuItemBean.setPath(subChild.getPath());
+                    subMenuItemBean.setName(subChild.getName());
+
+                    subChildren.add(subMenuItemBean);
+                }
+
+                menuItemBean.setSubItems(subChildren);
+                // if (menuItemBean.getSubItems().size() != 0) {
+                // menuItemBean.setPath("#");
+                // }
+                menuItems.add(menuItemBean);
             }
 
-            menuItemBean.setSubItems(subChildren);
-            // if (menuItemBean.getSubItems().size() != 0) {
-            // menuItemBean.setPath("#");
-            // }
-            menuItems.add(menuItemBean);
-        }
-
-        for (MenuItemBean output : menuItems) {
-            logger.debug("Title {} , Children = {}", output.getTitle(),
-                    output.getSubItems().size());
+            for (MenuItemBean output : menuItems) {
+                logger.debug("Title {} , Children = {}", output.getTitle(),
+                        output.getSubItems().size());
+            }
         }
 
         // NAVIGATION LINKS
@@ -112,5 +119,13 @@ public class HeaderModel {
 
     public List<NavbarLinkBean> getNavLinks() {
         return navLinks;
+    }
+
+    public Boolean getIsConfigured() {
+        return rootPath != null || !menuItems.isEmpty();
+    }
+
+    public String getHeaderRef() {
+        return "/content/ucs-exercise-aimelive/us/en/welcome/jcr:content/root/header";
     }
 }

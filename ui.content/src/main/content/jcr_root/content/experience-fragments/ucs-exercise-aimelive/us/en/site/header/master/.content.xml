@@ -29,6 +29,7 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="ucs-exercise-aimelive/components/search"
                 searchRoot="/content/ucs-exercise-aimelive/us"/>
+            <logo/>
         </root>
     </jcr:content>
 </jcr:root>

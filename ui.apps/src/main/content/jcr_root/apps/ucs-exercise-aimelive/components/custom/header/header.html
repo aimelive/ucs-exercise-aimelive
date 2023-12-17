@@ -13,6 +13,12 @@
         />
       </a>
       <div class="navbar__links">
+        <p
+          class="placeholder"
+          data-sly-test="${wcmmode.edit && model.navLinks.size==0}"
+        >
+          ADD NAVBAR LINKS
+        </p>
         <sly
           data-sly-test="${model.navLinks}"
           data-sly-list.navLinkItem="${model.navLinks}"
@@ -56,6 +62,12 @@
           <span>BACK</span>
         </div>
         <div class="first-level__items">
+          <p
+            class="placeholder"
+            data-sly-test="${wcmmode.edit && !model.isConfigured}"
+          >
+            PLEASE CONFIGURE HEADER ROOT PATH
+          </p>
           <sly data-sly-list.item="${model.menuItems}">
             <div
               data-nav-1="${item.name}"
