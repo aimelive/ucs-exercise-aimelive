@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-12-15T15:50:00.215+02:00"
+        cq:lastModified="{Date}2023-12-17T12:52:43.221+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/ucs-exercise-aimelive/settings/wcm/templates/unicredit-page-template"
         jcr:primaryType="cq:PageContent"
@@ -15,7 +15,7 @@
             <header
                 jcr:created="{Date}2023-12-11T14:10:01.330+02:00"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2023-12-15T15:43:20.962+02:00"
+                jcr:lastModified="{Date}2023-12-17T12:52:43.204+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="ucs-exercise-aimelive/components/custom/header"
@@ -30,9 +30,9 @@
                         targetBlank="false"/>
                     <item1
                         jcr:primaryType="nt:unstructured"
-                        elementClass="#"
-                        iconClassName="icon-calendar"
-                        label="Good"
+                        elementClass="search"
+                        iconClassName="icon-search"
+                        label="Search"
                         linkUrl="#"
                         targetBlank="false"/>
                 </navbarLink>
@@ -40,7 +40,15 @@
             <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="ucs-exercise-aimelive/components/container"
-                layout="responsiveGrid"/>
+                layout="responsiveGrid">
+                <helloworld
+                    jcr:created="{Date}2023-12-17T11:37:16.662+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-12-17T11:37:16.662+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="ucs-exercise-aimelive/components/helloworld"/>
+            </container>
             <footer
                 jcr:created="{Date}2023-12-11T14:10:14.435+02:00"
                 jcr:createdBy="admin"
@@ -49,20 +57,12 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="ucs-exercise-aimelive/components/custom/footer">
                 <footer-lastLinks
-                    jcr:lastModified="{Date}2023-12-15T15:49:30.430+02:00"
+                    jcr:lastModified="{Date}2023-12-15T17:11:25.510+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="ucs-exercise-aimelive/components/custom/footer-last-links">
-                    <footerLink jcr:primaryType="nt:unstructured">
-                        <item0
-                            jcr:primaryType="nt:unstructured"
-                            label="First link"
-                            newTab="false"
-                            url="#"/>
-                    </footerLink>
-                </footer-lastLinks>
+                    sling:resourceType="ucs-exercise-aimelive/components/custom/footer-last-links"/>
                 <footer-mainLinks
-                    jcr:lastModified="{Date}2023-12-15T15:49:43.568+02:00"
+                    jcr:lastModified="{Date}2023-12-15T17:19:06.100+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="ucs-exercise-aimelive/components/custom/footer-main-links">
@@ -71,10 +71,15 @@
                             jcr:primaryType="nt:unstructured"
                             label="Other links"
                             newTab="false"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            label="Good Things"
+                            newTab="false"
+                            url="#"/>
                     </footerLink>
                 </footer-mainLinks>
                 <social-media
-                    jcr:lastModified="{Date}2023-12-15T15:50:00.212+02:00"
+                    jcr:lastModified="{Date}2023-12-15T18:09:10.947+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="ucs-exercise-aimelive/components/custom/socialmedia"
@@ -85,15 +90,22 @@
                             jcr:primaryType="nt:unstructured"
                             icon="icon-twitter"
                             url="#"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            icon="icon-linkedin"
+                            url="#"/>
                     </socialMedia>
                 </social-media>
+                <footer-logo
+                    jcr:lastModified="{Date}2023-12-15T17:02:35.439+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="ucs-exercise-aimelive/components/custom/footer-logo"
+                    fileReference="/content/dam/ucs-exercise-aimelive/basics-logo-negative.svg"/>
             </footer>
         </root>
     </jcr:content>
     <about-us/>
-    <business/>
-    <governance/>
     <one-unicredit/>
-    <services/>
-    <big-time/>
+    <academy-project/>
 </jcr:root>

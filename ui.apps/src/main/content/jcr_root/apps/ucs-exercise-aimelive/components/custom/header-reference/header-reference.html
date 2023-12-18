@@ -1,4 +1,6 @@
-<sly
-  data-sly-resource="${'/content/ucs-exercise-aimelive/us/en/welcome/jcr:content/root/header' @resourceType='ucs-exercise-aimelive/components/custom/header',wcmmode='disabled'}"
->
+<sly data-sly-use.model="com.aimelive.ucs.core.models.ReferenceModel">
+  <sly
+    data-sly-resource="${model.headerRef @resourceType='ucs-exercise-aimelive/components/custom/header',wcmmode='disabled'}"
+  >
+  </sly>
 </sly>

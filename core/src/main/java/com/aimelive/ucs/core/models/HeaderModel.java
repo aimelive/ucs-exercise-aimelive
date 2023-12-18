@@ -125,7 +125,7 @@ public class HeaderModel {
         return rootPath != null || !menuItems.isEmpty();
     }
 
-    public String getHeaderRef() {
-        return "/content/ucs-exercise-aimelive/us/en/welcome/jcr:content/root/header";
+    public String getRootPath() {
+        return rootPath;
     }
 }
