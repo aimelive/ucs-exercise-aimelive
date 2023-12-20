@@ -1,0 +1,244 @@
+<div
+  data-sly-use.model="com.aimelive.ucs.core.models.SliderModel"
+  data-sly-unwrap
+>
+  <p data-sly-test="${model.slides.size==0}">
+    PLEASE CONFIGURE AT LEAST ONE SLIDE
+  </p>
+  <div class="heroBanner-welcome" data-sly-test="${model.slides.size!=0}">
+    <div class="heroBanner__main container-fixed">
+      <div class="heroBanner__container swiper-container">
+        <div class="heroBanner__wrapper swiper-wrapper">
+          <!-- TYPE 1 -->
+          <div data-sly-list.slide="${model.slides}" data-sly-unwrap>
+            <div
+              data-sly-test="${slide.slideType=='welcome-slide'}"
+              class="heroBanner__slide heroBanner__slide--type1 heroBanner__slide--video gradient gradient--type-one swiper-slide"
+              data-bg="${slide.imageDesktopPath}"
+              data-bg-mobile="${slide.imageMobilePath||slide.imageDesktopPath}"
+            >
+              <div
+                class="hero__mask text--subtitle"
+                data-mask="${slide.darkTheme}"
+              >
+                <img
+                  class="mask__logo"
+                  data-sly-test="${slide.darkTheme=='dark'}"
+                  src="/etc.clientlibs/ucs-exercise-aimelive/clientlibs/clientlib-site/resources/heroBanner__welcome/img/newLight.png"
+                  alt="logo__mask"
+                />
+                <img
+                  class="mask__logo"
+                  data-sly-test="${!slide.darkTheme || slide.darkTheme=='light'}"
+                  src="/etc.clientlibs/ucs-exercise-aimelive/clientlibs/clientlib-site/resources/heroBanner__welcome/img/newDark.png"
+                  alt="logo__mask"
+                />
+              </div>
+              <div class="hero container ${slide.darkTheme}">
+                <div class="hero__title text--headline">
+                  <p>${slide.welcomeTitle || 'CONFIGURE WELCOME TITLE'}</p>
+                  <!--/* <p>Welcome to</p>
+                  <p>our magazine ONE UniCredit</p> */-->
+                </div>
+                <p class="hero__subtitle text--body">
+                  ${slide.welcomeAbstract || 'CONFIGURE WELCOME ABSTRACT!'}
+                </p>
+              </div>
+            </div>
+            <!-- TYPE 2 -->
+            <div
+              data-sly-test="${slide.slideType=='article-slide'}"
+              class="heroBanner__slide heroBanner__slide--type2 gradient gradient--type-two swiper-slide"
+              data-bg="${slide.imageDesktopPath}"
+              data-bg-mobile="${slide.imageMobilePath||slide.imageDesktopPath}"
+            >
+              <div
+                class="hero__mask text--subtitle"
+                data-mask="${slide.darkTheme}"
+              >
+                <img
+                  class="mask__logo"
+                  data-sly-test="${slide.darkTheme=='dark'}"
+                  src="/etc.clientlibs/ucs-exercise-aimelive/clientlibs/clientlib-site/resources/heroBanner__welcome/img/newLight.png"
+                  alt="logo__mask"
+                />
+                <img
+                  class="mask__logo"
+                  data-sly-test="${!slide.darkTheme || slide.darkTheme=='light'}"
+                  src="/etc.clientlibs/ucs-exercise-aimelive/clientlibs/clientlib-site/resources/heroBanner__welcome/img/newDark.png"
+                  alt="logo__mask"
+                />
+              </div>
+              <div class="hero container">
+                <div class="hero__info ${slide.darkTheme}">
+                  <p class="hero__title text--headline">
+                    ${slide.articleTitle||'CONFIGURE TITLE'}
+                  </p>
+                  <div class="hero__lables">
+                    <span
+                      class="hero__lable text--labelBg bg--lipstick"
+                      style="font-size: 14px"
+                      >${slide.category||'NO CATEGORY'}</span
+                    >
+                    <div class="hero__hashtags hashTags">
+                      <div
+                        class="hero__hashtag hashTag"
+                        data-sly-repeat.tag="${slide.tags}"
+                      >
+                        #${tag}
+                      </div>
+                      <!--/* <div class="hero__hashtag hashTag">#Digitalization</div>
+                      <div class="hero__hashtag hashTag">
+                        #SocialImpactBanking
+                      </div>
+                      <div class="hero__hashtag hashTag">
+                        #MakeaDifferenceEveryDay
+                      </div>
+                      <div class="hero__hashtag hashTag">#BestPlaceToWork</div> */-->
+                      <div class="more-hashtag">
+                        <span class="oval"></span>
+                        <span class="oval"></span>
+                        <span class="oval"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="hero__date text--subtitle">
+                    ${'EEEE d MMM y' @ format=slide.date, timezone='UTC',
+                    locale='en_US', i18n}
+                  </p>
+                  <p class="hero__desc text--body">${slide.articleAbstract}</p>
+                  <a
+                    class="hero__button button button--bg"
+                    href="${slide.callToActionButtonLink}.html"
+                    target="${slide.callToActionTarget}"
+                  >
+                    ${slide.callToActionButton}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- TYPE 3 -->
+            <div
+              data-sly-test="${slide.slideType=='get-involved-slide'}"
+              class="heroBanner__slide heroBanner__slide--type3 gradient gradient--type-three swiper-slide"
+              data-bg="${slide.imageDesktopPath}"
+              data-bg-mobile="${slide.imageMobilePath||slide.imageDesktopPath}"
+            >
+              <div
+                class="hero__mask text--subtitle"
+                data-mask="${slide.darkTheme}"
+              >
+                <img
+                  class="mask__logo"
+                  data-sly-test="${slide.darkTheme=='dark'}"
+                  src="/etc.clientlibs/ucs-exercise-aimelive/clientlibs/clientlib-site/resources/heroBanner__welcome/img/newLight.png"
+                  alt="logo__mask"
+                />
+                <img
+                  class="mask__logo"
+                  data-sly-test="${!slide.darkTheme || slide.darkTheme=='light'}"
+                  src="/etc.clientlibs/ucs-exercise-aimelive/clientlibs/clientlib-site/resources/heroBanner__welcome/img/newDark.png"
+                  alt="logo__mask"
+                />
+              </div>
+              <div class="hero container">
+                <div class="hero__info">
+                  <p class="hero__title text--headline ${slide.darkTheme}">
+                    ${slide.titleGetInvolved||'CONFIGURE TITLE'}
+                  </p>
+                  <p
+                    class="hero__subtitle text--paragraph-title ${slide.darkTheme}"
+                  >
+                    ${slide.subTitleGetInvolved||'CONFIGURE SUBTITLE'}
+                  </p>
+                  <p class="hero__desc text--body ${slide.darkTheme}">
+                    ${slide.getInvolvedDescription @ context='html'}
+                  </p>
+
+                  <a
+                    class="hero__button button button--bg ${slide.darkTheme}"
+                    href="#"
+                    slideModal="#${slide.name}"
+                  >
+                    ${slide.discoverMoreLabel||'CONFIGURE LABEL'}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-pagination
+          data-hero-pagination
+          class="heroBanner__pagination"
+        ></div>
+        <div data-arrows class="heroBanner__arrows">
+          <div data-prev-small class="icon-down"></div>
+          <div data-number>
+            <span class="current">1</span> /
+            <span class="total">${model.slides.size}</span>
+          </div>
+          <div data-next-small class="icon-down"></div>
+        </div>
+      </div>
+      <sly data-sly-list.slideItem="${model.slides}">
+        <div
+          class="heroBanner__modal"
+          data-sly-test="${slideItem.slideType=='get-involved-slide'}"
+          id="${slideItem.name}"
+        >
+          <div class="modal">
+            <div class="modal__info">
+              <div class="modal__involved text--paragraph-title">
+                <div class="icon icon-info"></div>
+                ${slideItem.overlayTitle1}
+              </div>
+              <p class="modal__title text--headline">
+                ${slideItem.overlayMainTitle}
+              </p>
+              <div class="modal__text text--body">
+                ${slideItem.overlayText @ context='html'}
+                <!--/* <p>
+                  Our new photography campaign celebrates autumn, the season
+                  that marks the transition from summer to winter.
+                </p>
+                <p>
+                  Please send us your photos that capture your experience of
+                  Autumn. This could be images of the season’s warm colours or
+                  the unique traditions and special activities that represent
+                  the time of year in your city, country and culture.
+                </p>
+                <p>
+                  Please remember: if you are sending us a photograph of a
+                  person, please ask them to complete our UniCredit Release
+                  Form. You can download a copy from this
+                  <a href="#">link</a>.
+                </p>
+                <p>We look forward to receiving your photos!</p>
+                <p>
+                  Please send your photo and caption to
+                  <a href="mailto:onebank@unicreditgroup.eu"
+                    >onebank@unicreditgroup.eu</a
+                  >
+                </p> */-->
+              </div>
+            </div>
+            <div
+              class="modal__bg"
+              data-bg="${slideItem.imageOverlayPath}"
+              data-bg-mobile="${slideItem.imageMobileOverlayPath}"
+            ></div>
+          </div>
+          <div class="modal__top-bar container">
+            <img
+              src="/etc.clientlibs/ucs-exercise-aimelive/clientlibs/clientlib-site/resources/heroBanner__welcome/img/logo_unicredit.svg"
+              alt="logo"
+            />
+            <div class="icon icon-close modal__close"></div>
+          </div>
+        </div>
+      </sly>
+    </div>
+  </div>
+</div>
