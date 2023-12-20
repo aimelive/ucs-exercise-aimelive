@@ -35,7 +35,26 @@ public class SliderModel {
             if (slideType != null && imageDesktopPath != null) {
                 slideResources.add(child);
             }
-            logger.debug("Resource: {} and Image: {}", slideType, imageDesktopPath);
+            // logger.debug("Resource: {} and Image: {}", slideType, imageDesktopPath);
+        }
+
+        // ORDERING THE SLIDES
+        String[] slidesOrder = currentResource.getValueMap().get("slidesOrder", String[].class);
+
+        List<Resource> orderedSlideResources = new ArrayList<Resource>();
+
+        if (slidesOrder != null) {
+            for (String slide : slidesOrder) {
+                // logger.debug("Slide: {}", slide);
+                for (Resource slideResource : slideResources) {
+                    if (slide.equalsIgnoreCase(slideResource.getName())) {
+                        orderedSlideResources.add(slideResource);
+                    }
+                }
+            }
+            slideResources = orderedSlideResources;
+        } else {
+            logger.debug("Slides Order is null or empty.");
         }
     }
 

@@ -94,6 +94,14 @@
                             <type>zip</type>
                             <target>/apps/ucs-exercise-aimelive-vendor-packages/application/install</target>
                         </embedded>
+                        <!-- <embedded>
+                            <groupId>com.adobe.acs</groupId>
+                            <artifactId>acs-aem-commons-all</artifactId>
+                            <type>zip</type>
+                            <target>/apps/ucs-exercise-aimelive-vendor-packages/container/install</target>
+                            <filter>true</filter>
+                            <isAllVersionsFilter>true</isAllVersionsFilter>
+                        </embedded> -->
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -212,5 +220,11 @@
             <artifactId>core.wcm.components.config</artifactId>
             <type>zip</type>
         </dependency>
+        <!-- <dependency>
+            <groupId>com.adobe.acs</groupId>
+            <artifactId>acs-aem-commons-all</artifactId>
+            <version>6.3.2</version>
+            <type>zip</type>
+        </dependency> -->
     </dependencies>
 </project>
