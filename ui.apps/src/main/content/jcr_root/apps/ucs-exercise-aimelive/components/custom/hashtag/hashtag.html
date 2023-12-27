@@ -1,0 +1,64 @@
+<sly data-sly-use.model="com.aimelive.ucs.core.models.HashTagModel">
+  <p data-sly-test="${model.tags.size==0}">
+    PLEASE CONFIGURE AT LEAST ONE HASHTAG
+  </p>
+  <div
+    class="relatedHashtag container-fixed"
+    data-sly-test="${model.tags.size!=0}"
+  >
+    <div class="relatedHashtag__bar hashtag__container">
+      <div class="bar__title text--subtitle">
+        ${properties.title||'CONFIGURE TITLE'}:
+      </div>
+      <div class="bar__list">
+        <sly data-sly-list.item="${model.tags}">
+          <div
+            data-hashtag="${item.tag}"
+            class="bar__item text--body"
+            data-limit="${properties.limit}"
+          >
+            #${item.extractedTag}
+          </div>
+        </sly>
+        <!--/* <div data-hashtag="peoplestories" class="bar__item text--body">
+          #PeopleStories
+        </div>
+        <div
+          data-hashtag="makeadifferenceeveryday"
+          class="bar__item text--body"
+        >
+          #MakeADifferenceEveryDay
+        </div>
+        <div data-hashtag="talent" class="bar__item text--body">#Talent</div>
+        <div data-hashtag="socialimpactbanking" class="bar__item text--body">
+          #SocialImpactBanking
+        </div> */-->
+      </div>
+    </div>
+    <div class="relatedHashtag__result hashtag__container">
+      <div class="result__cta">
+        <div class="result__number">
+          <span class="number text--paragraph-title">0</span>
+          <span class="results text--body">results</span>
+        </div>
+        <div class="result__close">
+          <span class="text--label"
+            >${properties.closeLabel||'CONFIGURE CLOSE LABEL'}</span
+          >
+          <span class="icon icon-close"></span>
+        </div>
+      </div>
+      <div class="result__cards">
+        <div class="swiper-container">
+          <div class="swiper-wrapper"></div>
+
+          <!-- pagination -->
+          <div
+            class="swiper-pagination"
+            data-hero-pagination
+            data-pagination
+          ></div>
+        </div>
+      </div>
+    </div></div
+></sly>

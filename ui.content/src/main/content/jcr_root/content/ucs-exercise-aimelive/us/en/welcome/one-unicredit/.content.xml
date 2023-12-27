@@ -2,7 +2,9 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-12-15T17:10:23.063+02:00"
+        cq:contextHubPath="/etc/cloudsettings/default/contexthub"
+        cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+        cq:lastModified="{Date}2023-12-27T07:25:38.658+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/ucs-exercise-aimelive/settings/wcm/templates/unicredit-page-template-2"
         jcr:primaryType="cq:PageContent"
@@ -24,5 +26,14 @@
                 sling:resourceType="ucs-exercise-aimelive/components/container"
                 layout="responsiveGrid"/>
         </root>
+        <image jcr:primaryType="nt:unstructured">
+            <file/>
+        </image>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2023-12-27T07:25:38.620+02:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
     </jcr:content>
 </jcr:root>

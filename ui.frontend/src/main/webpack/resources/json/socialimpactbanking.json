@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "hashtag": "#SocialImpactBanking",
+    "link": "path1",
+    "image": "components/relatedHashtag/img/1.png",
+    "date": "Friday 23 Oct 2020",
+    "text": "1 My Stories: “when Our People make a difference"
+  },
+  {
+    "id": "2",
+    "hashtag": "#SocialImpactBanking",
+    "link": "path2",
+    "image": "components/relatedHashtag/img/2.png",
+    "date": "Friday 23 Oct 2020",
+    "text": "2 My Stories: “when Our People make a difference"
+  },
+  {
+    "id": "3",
+    "hashtag": "#SocialImpactBanking",
+    "link": "path3",
+    "image": "components/relatedHashtag/img/3.png",
+    "date": "Friday 23 Oct 2020",
+    "text": "3 My Stories: “when Our People make a difference"
+  }
+  
+]

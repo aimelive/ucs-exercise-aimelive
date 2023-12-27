@@ -7,7 +7,10 @@
   </p>
   <div class="heroBanner-welcome" data-sly-test="${model.slides.size!=0}">
     <div class="heroBanner__main container-fixed">
-      <div class="heroBanner__container swiper-container">
+      <div
+        class="heroBanner__container swiper-container"
+        autoplay-duration="${model.duration}"
+      >
         <div class="heroBanner__wrapper swiper-wrapper">
           <!-- TYPE 1 -->
           <div data-sly-list.slide="${model.slides}" data-sly-unwrap>
@@ -76,7 +79,7 @@
                   </p>
                   <div class="hero__lables">
                     <span
-                      class="hero__lable text--labelBg bg--lipstick"
+                      class="hero__lable text--labelBg bg--lipstick ${slide.darkTheme}"
                       style="font-size: 14px"
                       >${slide.category||'NO CATEGORY'}</span
                     >
@@ -109,7 +112,7 @@
                   </p>
                   <p class="hero__desc text--body">${slide.articleAbstract}</p>
                   <a
-                    class="hero__button button button--bg"
+                    class="hero__button button button--bg ${slide.darkTheme}"
                     href="${slide.callToActionButtonLink}.html"
                     target="${slide.callToActionTarget}"
                   >

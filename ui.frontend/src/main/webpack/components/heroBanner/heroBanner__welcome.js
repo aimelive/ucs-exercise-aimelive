@@ -148,6 +148,8 @@ $(document).ready(function () {
   ============================= */
 
 function createHeroSlider() {
+  var autoplayDuration = $(".heroBanner__container").attr("autoplay-duration");
+
   // destroy and initialize again
   if ($(".heroBanner-welcome .swiper-slide-active").length > 0) {
     $(".heroBanner-welcome .heroBanner__container")[0].swiper.destroy();
@@ -171,7 +173,7 @@ function createHeroSlider() {
           autoResize: true,
           simulateTouch: false,
           autoplay: {
-            delay: 4000,
+            delay: autoplayDuration,
           },
           loopFillGroupWithBlank: true,
           slidesPerView: "auto",
@@ -197,7 +199,7 @@ function createHeroSlider() {
         {
           spaceBetween: 10,
           autoplay: {
-            delay: 4000,
+            delay: autoplayDuration,
           },
           paginationClickable: true,
           autoResize: true,

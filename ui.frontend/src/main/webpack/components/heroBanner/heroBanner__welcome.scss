@@ -108,7 +108,7 @@
   width: calc(100% - 80px);
   position: absolute;
   top: 88px;
-  left: 40px;
+  left: 10%;
   color: #ffffff;
 }
 @media only screen and (max-width: 1024px) {
@@ -155,7 +155,7 @@
     margin-bottom: 11px;
   }
 }
-.heroBanner-welcome .heroBanner__container .heroBanner__wrapper .heroBanner__slide--type2 .hero__info .hero__lables {
+.heroBanner-welcome .heroBanner__container .heroBanner__wrapper  .hero__info .hero__lables {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -170,12 +170,12 @@
   width: 100%;
   margin-bottom: 10px;
 }
-.heroBanner-welcome .heroBanner__container .heroBanner__wrapper .heroBanner__slide--type2 .hero__info .hero__lables .hero__lable {
+.heroBanner-welcome .heroBanner__container .heroBanner__wrapper  .hero__info .hero__lables .hero__lable {
   height: 20px;
   margin: 0 10px 0 0;
   white-space: nowrap;
 }
-.heroBanner-welcome .heroBanner__container .heroBanner__wrapper .heroBanner__slide--type2 .hero__info .hero__lables .hero__hashtags {
+.heroBanner-welcome .heroBanner__container .heroBanner__wrapper  .hero__info .hero__lables .hero__hashtags {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -189,11 +189,11 @@
   width: 70%;
 }
 @media only screen and (max-width: 1024px) {
-  .heroBanner-welcome .heroBanner__container .heroBanner__wrapper .heroBanner__slide--type2 .hero__info .hero__lables .hero__hashtags {
+  .heroBanner-welcome .heroBanner__container .heroBanner__wrapper  .hero__info .hero__lables .hero__hashtags {
     flex-grow: 1;
   }
 }
-.heroBanner-welcome .heroBanner__container .heroBanner__wrapper .heroBanner__slide--type2 .hero__info .hero__lables .hero__hashtags .hashTag {
+.heroBanner-welcome .heroBanner__container .heroBanner__wrapper .hero__info .hero__lables .hero__hashtags .hashTag {
   padding: 0px 6px;
   border-radius: 10px;
   font-size: 14px;
@@ -204,7 +204,7 @@
   text-align: center;
   margin-right: 5px;
 }
-.heroBanner-welcome .heroBanner__container .heroBanner__wrapper .heroBanner__slide--type2 .hero__info .hero__lables .hero__hashtags .more-hashtag {
+.heroBanner-welcome .heroBanner__container .heroBanner__wrapper  .hero__info .hero__lables .hero__hashtags .more-hashtag {
   width: 30px;
   min-width: 30px;
   height: 21px;
@@ -223,7 +223,7 @@
   -ms-flex-align: center;
   align-items: center;
 }
-.heroBanner-welcome .heroBanner__container .heroBanner__wrapper .heroBanner__slide--type2 .hero__info .hero__lables .hero__hashtags .more-hashtag .oval {
+.heroBanner-welcome .heroBanner__container .heroBanner__wrapper  .hero__info .hero__lables .hero__hashtags .more-hashtag .oval {
   content: "";
   width: 3px;
   height: 3px;
@@ -270,7 +270,7 @@
   position: absolute;
   max-width: 580px;
   top: 88px;
-  left: 40px;
+  left: 10%;
   color: #ffffff;
 }
 @media only screen and (max-width: 1024px) {
@@ -393,6 +393,27 @@
   -ms-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+    margin-right: auto;
+      margin-left: auto;
+      max-width: 1280px;
+      padding-right: 40px;
+      padding-left: 40px;
+      box-sizing: border-box;
+      align-self: center;
+}
+
+@media only screen and (max-width: 1024px) {
+.heroBanner-welcome .heroBanner__modal .modal__top-bar {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+.heroBanner-welcome .heroBanner__modal .modal__top-bar {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 }
 @media only screen and (max-width: 1024px) {
   .heroBanner-welcome .heroBanner__modal .modal__top-bar {

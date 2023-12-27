@@ -1,0 +1,84 @@
+[
+  {
+    "id": "1",
+    "hashtag": "#talent",
+    "link": "path1",
+    "image": "components/relatedHashtag/img/1.png",
+    "date": "Friday 23 Oct 2020",
+    "text": "1 My Stories: “when Our People make a difference"
+  },
+  {
+    "id": "2",
+    "hashtag": "#talent",
+    "link": "path2",
+    "image": "components/relatedHashtag/img/2.png",
+    "date": "Friday 23 Oct 2020",
+    "text": "2 My Stories: “when Our People make a difference"
+  },
+  {
+    "id": "3",
+    "hashtag": "#talent",
+    "link": "path3",
+    "image": "components/relatedHashtag/img/3.png",
+    "date": "Friday 23 Oct 2020",
+    "text": "3 My Stories: “when Our People make a difference"
+  },
+  {
+    "id": "4",
+    "hashtag": "#talent",
+    "link": "path4",
+    "image": "components/relatedHashtag/img/4.png",
+    "date": "Friday 23 Oct 2020",
+    "text": "4 My Stories: “when Our People make a difference"
+  },
+  {
+    "id": "5",
+    "hashtag": "#talent",
+    "link": "path5",
+    "image": "components/relatedHashtag/img/5.png",
+    "date": "Friday 23 Oct 2020",
+    "text": "5 My Stories: “when Our People make a difference"
+  },
+  {
+    "id": "6",
+    "hashtag": "#talent",
+    "link": "path6",
+    "image": "components/relatedHashtag/img/6.png",
+    "date": "Friday 23 Oct 2020",
+    "text": "6 My Stories: “when Our People make a difference"
+  },
+  {
+    "id": "7",
+    "hashtag": "#talent",
+    "link": "path7",
+    "image": "components/relatedHashtag/img/3.png",
+    "date": "Friday 23 Oct 2020",
+    "text": "7 My Stories: “when Our People make a difference"
+  },
+  {
+    "id": "8",
+    "hashtag": "#talent",
+    "link": "path8",
+    "image": "components/relatedHashtag/img/2.png",
+    "date": "Friday 23 Oct 2020",
+    "text": "8 My Stories: “when Our People make a difference"
+  },
+  {
+    "id": "9",
+    "hashtag": "#talent",
+    "link": "path9",
+    "image": "components/relatedHashtag/img/1.png",
+
+    "date": "Friday 23 Oct 2020",
+    "text": "9 My Stories: “when Our People make a difference"
+  },
+  {
+    "id": "10",
+    "hashtag": "#talent",
+    "link": "path10",
+    "image": "components/relatedHashtag/img/4.png",
+    "date": "Friday 23 Oct 2020",
+    "text": "10 My Stories: “when Our People make a difference"
+  }
+  
+]

@@ -730,6 +730,15 @@ p {
     box-sizing: border-box;
     align-self: center;
 }
+.hashtag__container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1280px;
+    padding-right: 40px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    align-self: center;
+}
 .footer__wrap{
         padding-right: 40px;
         padding-left: 40px;
@@ -741,12 +750,20 @@ p {
         // padding-right: 20px;
         // padding-left: 20px;
     }
+    .hashtag__container {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
     .container {
         // padding-right: 15px;
         // padding-left: 15px;
+    }
+    .hashtag__container {
+        padding-right: 15px;
+        padding-left: 15px;
     }
 }
 
