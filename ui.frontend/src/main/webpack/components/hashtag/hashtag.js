@@ -35,7 +35,12 @@ $(document).ready(function () {
       $(this).addClass("bar__item--active");
       $(".relatedHashtag__result").fadeIn();
 
-      getResult($(this).attr("data-hashtag"), $(this).attr("data-limit"));
+      getResult(
+        $(this).attr("data-hashtag"),
+        $(this).attr("data-limit"),
+        $(this).attr("data-orderby"),
+        $(this).attr("data-sortby")
+      );
     }
   });
 
@@ -175,7 +180,7 @@ $(document).ready(function () {
     }
   }
 
-  function getResult(hashtag, limit) {
+  function getResult(hashtag, limit, orderby, sortby) {
     // Remove previus html and slider
     if ($(".relatedHashtag .swiper-slide-active").length > 0) {
       $(".relatedHashtag .swiper-container")[0].swiper.destroy();
@@ -184,7 +189,7 @@ $(document).ready(function () {
     $(".relatedHashtag__result .swiper-slide").remove();
 
     $.ajax({
-      url: `/bin/servlets/articles?hashtag=${hashtag}&limit=${limit}`,
+      url: `/bin/servlets/articles?hashtag=${hashtag}&limit=${limit}&orderby=${orderby}&sortby=${sortby}`,
       type: "GET",
       success: function (data) {
         dataHashtag = data;

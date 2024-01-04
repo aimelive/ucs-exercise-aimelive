@@ -11,42 +11,42 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/coral/foundation/container">
                 <items jcr:primaryType="nt:unstructured">
-                <footerLink
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                composite="{Boolean}true" fieldLabel="Add Main Footer Links">
-                <field
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="granite/ui/components/coral/foundation/container"
-                    name="./footerLink">
-                    <items jcr:primaryType="nt:unstructured">
-                        <linkGroup
+                    <footerLink
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                        composite="{Boolean}true"
+                        fieldLabel="Add Main Footer Links">
+                        <field
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/well">
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            name="./footerLink">
                             <items jcr:primaryType="nt:unstructured">
-                                <label
+                                <linkGroup
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                    fieldLabel="Link Label"
-                                    name="./label"/>
-                            
-                                <linkUrl
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                    fieldLabel="Link URL"
-                                    name="./url"/>
-                                 <targetBlank
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
-                                    uncheckedValue="{Boolean}false"
-                                    value="{Boolean}true"
-                                    text="Open Link in New Tab?"
-                                    name="./newTab" />        
+                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <label
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Link Label"
+                                            name="./label"/>
+                                        <linkUrl
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="Link URL"
+                                            name="./url"/>
+                                        <targetBlank
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                            name="./newTab"
+                                            text="Open Link in New Tab?"
+                                            uncheckedValue="{Boolean}false"
+                                            value="{Boolean}true"/>
+                                    </items>
+                                </linkGroup>
                             </items>
-                        </linkGroup>
-                    </items>
-                </field>
-            </footerLink>
+                        </field>
+                    </footerLink>
                 </items>
             </column>
         </items>

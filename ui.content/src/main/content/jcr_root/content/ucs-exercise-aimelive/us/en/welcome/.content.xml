@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-12-27T09:06:54.118+02:00"
+        cq:lastModified="{Date}2023-12-28T08:58:21.441+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/ucs-exercise-aimelive/settings/wcm/templates/unicredit-page-template"
         jcr:primaryType="cq:PageContent"
@@ -126,17 +126,6 @@
                         date="{Date}2023-01-01T00:00:00.000+02:00"
                         slideType="welcome-slide"/>
                 </herobanner>
-                <hashtag
-                    jcr:created="{Date}2023-12-27T09:06:49.113+02:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2023-12-27T09:06:49.113+02:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="ucs-exercise-aimelive/components/custom/hashtag"
-                    closeLabel="CLOSE"
-                    limit="4"
-                    tags="[ucs-exercise-aimelive:magazine/PeopleStories,ucs-exercise-aimelive:magazine/Talent,ucs-exercise-aimelive:magazine/SocialImpactBanking,ucs-exercise-aimelive:magazine/MakeADifferenceEveryDay]"
-                    title="RELATED ARTICLE"/>
             </container>
             <footer
                 jcr:created="{Date}2023-12-11T14:10:14.435+02:00"

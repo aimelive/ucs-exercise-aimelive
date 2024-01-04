@@ -2,11 +2,11 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
-        cq:lastModified="{Date}2023-12-27T09:12:34.641+02:00"
+        cq:lastModified="{Date}2023-12-28T08:55:20.338+02:00"
         cq:lastModifiedBy="admin"
-        cq:templateType="/conf/ucs-exercise-aimelive/settings/wcm/template-types/page"
-        jcr:description="Articles Template"
+        cq:templateType="/conf/ucs-exercise-aimelive/settings/wcm/template-types/articlepage"
+        jcr:description="Article template..."
         jcr:primaryType="cq:PageContent"
-        jcr:title="Articles Template"
-        status="draft"/>
+        jcr:title="Article Template"
+        status="enabled"/>
 </jcr:root>

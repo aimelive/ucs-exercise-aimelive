@@ -16,6 +16,8 @@
             data-hashtag="${item.tag}"
             class="bar__item text--body"
             data-limit="${properties.limit}"
+            data-orderby="${properties.orderBy||'cq:lastModified'}"
+            data-sortby="${properties.sortBy||'desc'}"
           >
             #${item.extractedTag}
           </div>

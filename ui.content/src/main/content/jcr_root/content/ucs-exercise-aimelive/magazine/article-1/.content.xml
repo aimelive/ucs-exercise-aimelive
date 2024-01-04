@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-12-28T08:57:38.669+02:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/ucs-exercise-aimelive/settings/wcm/templates/article-template"
+        jcr:lastModified="{Date}2023-12-28T08:57:38.665+02:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Article 1"
+        sling:resourceType="ucs-exercise-aimelive/components/articlepage"
+        articleDate="{Date}2023-12-28T00:00:00.000+02:00"
+        articlePicture="/content/dam/ucs-exercise-aimelive/ama-dablam-2064522_1280.jpg"
+        articleTags="[ucs-exercise-aimelive:magazine/PeopleStories]"
+        articleTitle="Default Article Title">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="ucs-exercise-aimelive/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="ucs-exercise-aimelive/components/container"
+                layout="responsiveGrid"/>
+        </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2023-12-28T08:57:38.665+02:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+</jcr:root>

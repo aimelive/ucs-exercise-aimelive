@@ -11,27 +11,73 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/coral/foundation/container">
                 <items jcr:primaryType="nt:unstructured">
-                       <title
+                    <title
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Title"
+                        name="./title"
+                        required="{Boolean}true"/>
+                    <tags
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                        fieldLabel="Tags"
+                        multiple="{Boolean}true"
+                        name="./tags"
+                        rootPath="/content/cq:tags/ucs-exercise-aimelive/magazine"/>
+                    <limit
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                        defaultValue="10"
+                        fieldLabel="Limit Articles"
+                        max="20"
+                        min="1"
+                        name="./limit"/>
+                    <closeLabel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Close Label"
+                        name="./closeLabel"
+                        required="{Boolean}true"/>
+                    <orderBy
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="Title"
-                            required="{Boolean}true"
-                            name="./title"/>
-                        <tags jcr:primaryType="nt:unstructured" sling:resourceType="cq/gui/components/coral/common/form/tagfield" fieldLabel="Tags" multiple="{Boolean}true" name="./tags" rootPath="/content/cq:tags/ucs-exercise-aimelive/magazine" />
-                        <limit
+                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                            fieldLabel="Order Articles By"
+                            name="./orderBy">
+                            <items jcr:primaryType="nt:unstructured">
+                                <lastModified
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Last Modified Date"
+                                    value="cq:lastModified"/>
+                                <createdDate
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Created Date"
+                                    value="jcr:created"/>
+                                <articleDate
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Article Date"
+                                    value="articleDate"/>
+                                <articleTitle
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Article Title"
+                                    value="articleTitle"/>
+                            </items>
+                        </orderBy>    
+                        <sortBy
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
-                            fieldLabel="Limit Articles"
-                            defaultValue="10" 
-                            max="20"
-                            min="1"
-                            name="./limit"/>
-                        <closeLabel
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="Close Label"
-                            required="{Boolean}true"
-                            name="./closeLabel"/>        
+                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                            fieldLabel="Sort By"
+                            name="./sortBy">
+                            <items jcr:primaryType="nt:unstructured">
+                                <desc
+                                    jcr:primaryType="nt:unstructured"
+                                    text="DESC"
+                                    value="desc"/>
+                                <asc
+                                    jcr:primaryType="nt:unstructured"
+                                    text="ASC"
+                                    value="asc"/>
+                            </items>
+                        </sortBy>    
                 </items>
             </column>
         </items>

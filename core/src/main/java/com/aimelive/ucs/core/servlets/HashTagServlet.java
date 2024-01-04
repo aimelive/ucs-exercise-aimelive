@@ -48,6 +48,8 @@ public class HashTagServlet extends SlingSafeMethodsServlet {
     try {
       String hashtag = request.getParameter("hashtag");
       String limit = request.getParameter("limit");
+      String orderby = request.getParameter("orderby");
+      String sortby = request.getParameter("sortby");
       if (hashtag == null)
         throw new IllegalArgumentException("Hashtag is required to continue.");
 
@@ -58,10 +60,10 @@ public class HashTagServlet extends SlingSafeMethodsServlet {
       Map<String, String> predicate = new HashMap<String, String>();
       predicate.put("path", "/content/ucs-exercise-aimelive/magazine");
       predicate.put("type", "cq:Page");
-      predicate.put("orderby", "@jcr:content/cq:lastModified");
-      predicate.put("orderby.sort", "desc");
+      predicate.put("orderby", "@jcr:content/" + (orderby != null ? orderby : "cq:lastModified"));
+      predicate.put("orderby.sort", sortby != null ? sortby : "desc");
       predicate.put("tagid", hashtag);
-      predicate.put("tagid.property", "jcr:content/cq:tags");
+      predicate.put("tagid.property", "jcr:content/articleTags");
       predicate.put("p.limit", limit != null ? limit : "20");
 
       Query query = null;
@@ -73,16 +75,11 @@ public class HashTagServlet extends SlingSafeMethodsServlet {
       for (Hit hit : result.getHits()) {
         Resource hitresource = hit.getResource();
         Resource resource = hitresource.getChild("jcr:content");
-        Date date = resource.getValueMap().get("jcr:created", Date.class);
-        String text = resource.getValueMap().get("jcr:title", String.class);
-        String[] tags = resource.getValueMap().get("cq:tags", String[].class);
-
-        Resource pictureResource = resource.getChild("cq:featuredimage");
-        String picture = null;
-
-        if (pictureResource != null) {
-          picture = pictureResource.getValueMap().get("fileReference", String.class);
-        }
+        
+        Date date = resource.getValueMap().get("articleDate", Date.class);
+        String text = resource.getValueMap().get("articleTitle", String.class);
+        String[] tags = resource.getValueMap().get("articleTags", String[].class);
+        String picture = resource.getValueMap().get("articlePicture", String.class);
 
         if (tags != null && tags.length != 0) {
           RelatedArticle article = new RelatedArticle(Long.toString(hit.getIndex()), text, formatDate(date),
