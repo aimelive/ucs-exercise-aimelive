@@ -75,7 +75,7 @@ public class HashTagServlet extends SlingSafeMethodsServlet {
       for (Hit hit : result.getHits()) {
         Resource hitresource = hit.getResource();
         Resource resource = hitresource.getChild("jcr:content");
-        
+
         Date date = resource.getValueMap().get("articleDate", Date.class);
         String text = resource.getValueMap().get("articleTitle", String.class);
         String[] tags = resource.getValueMap().get("articleTags", String[].class);

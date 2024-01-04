@@ -55,12 +55,12 @@ public class HelperUtils {
         try {
             int skippedArticles = 0;
             for (ArticleData articleData : articles) {
-                Page existPage = pageManager.getPage(PARENT_PATH + articleData.getLink());
+                Page existPage = pageManager.getPage(PARENT_PATH + articleData.getPageName());
                 if (existPage != null) {
                     ++skippedArticles;
                     continue;
                 }
-                Page newPage = pageManager.create(PARENT_PATH, null, TEMPLATE_PATH, articleData.getLink());
+                Page newPage = pageManager.create(PARENT_PATH, null, TEMPLATE_PATH, articleData.getPageName());
                 Node pageNode = newPage.adaptTo(Node.class).getNode("jcr:content");
                 pageNode.setProperty("jcr:title", articleData.getTitle());
                 pageNode.setProperty("jcr:description", articleData.getDescription());
@@ -116,7 +116,7 @@ public class HelperUtils {
         articleData.setTitle(csvRow[0].replaceAll("\"", ""));
         articleData.setDescription(csvRow[1]);
         articleData.setImage(csvRow[2]);
-        articleData.setLink(csvRow[3]);
+        articleData.setPageName(csvRow[3]);
 
         // Assuming tags are represented as a comma-separated list in the CSV
         String[] tagsArray = csvRow[4].split(",");

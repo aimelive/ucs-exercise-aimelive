@@ -1,13 +1,10 @@
 package com.aimelive.ucs.core.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
-import javax.jcr.Session;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.Part;
@@ -21,11 +18,9 @@ import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aimelive.ucs.core.beans.ArticleData;
-import com.aimelive.ucs.core.utils.HelperUtils;
+import com.aimelive.ucs.core.services.ArticlesImportService;
 import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.AssetManager;
-import com.day.cq.wcm.api.PageManager;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Component(service = { Servlet.class })
@@ -33,11 +28,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class FileUploadServlet extends SlingAllMethodsServlet {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    private final String CSV_FILE = "/content/dam/ucs-exercise-aimelive/uploads/articles.csv";
+
+    private Date lastExecutionTime;
+
     @Override
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response)
             throws ServletException, IOException {
         Map<String, String> responseData = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
+
         try {
             Part filePart = request.getPart("file");
             if (filePart != null) {
@@ -52,41 +51,33 @@ public class FileUploadServlet extends SlingAllMethodsServlet {
                 // responseData.put("filename", fileAsset.getName());
                 responseData.put("filepath", fileAsset.getPath());
                 // responseData.put("contentType", fileAsset.getMimeType());
-                logger.debug("START");
+
                 ResourceResolver resolver = request.getResourceResolver();
-                Iterator<String[]> csvData = HelperUtils.readFileCSV(resolver.getResource(fileAsset.getPath()));
 
-                List<ArticleData> articles = new ArrayList<ArticleData>();
+                Map<String, String> responseArticles = ArticlesImportService.createArticlesFromCsv(resolver,
+                        fileAsset.getPath(), lastExecutionTime);
 
-                while (csvData.hasNext()) {
-                    String[] line = csvData.next();
-                    ArticleData articleData = HelperUtils.convertToArticleData(line);
-                    articles.add(articleData);
-                }
-                logger.debug("RECORD PROCESSING");
-                int skippedArticles = HelperUtils.createPages(resolver.adaptTo(PageManager.class),
-                        resolver.adaptTo(Session.class), articles);
-                logger.debug("STOP");
-                logger.debug("SKIPPED ARTICLES: {} ", skippedArticles);
-                logger.debug("CREATED ARTICLES: {} ", articles.size() - skippedArticles);
+                responseData.put("skippedArticles", responseArticles.get("skippedArticles"));
+                responseData.put("createdArticles", responseArticles.get("createdArticles"));
 
-                // Creating Pages
-
-                // response.setContentType("application/json");
-                // response.getWriter().write(objectMapper.writeValueAsString(articles));
-                // return;
-                responseData.put("skippedArticles", String.valueOf(skippedArticles));
-                responseData.put("createdArticles", String.valueOf(articles.size() - skippedArticles));
             } else {
-                throw new IllegalArgumentException("File field is required");
+                ResourceResolver resolver = request.getResourceResolver();
+
+                Map<String, String> responseArticles = ArticlesImportService.createArticlesFromCsv(resolver,
+                        CSV_FILE, lastExecutionTime);
+
+                responseData.put("skippedArticles", responseArticles.get("skippedArticles"));
+                responseData.put("createdArticles", responseArticles.get("createdArticles"));
             }
+            lastExecutionTime = new Date();
+            responseData.put("latestExecutionTime", lastExecutionTime.toString());
         } catch (Exception e) {
-            logger.debug("ERROR ===== {}", e);
+            logger.debug("ERROR ===== {}", e.getCause());
 
             responseData.put("message", "Something went wrong, please try again later.");
             responseData.put("error", e.getMessage());
         }
-
+        ObjectMapper objectMapper = new ObjectMapper();
         String json = objectMapper.writeValueAsString(responseData);
 
         response.setContentType("application/json");

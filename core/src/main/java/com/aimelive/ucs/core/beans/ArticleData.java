@@ -2,11 +2,19 @@ package com.aimelive.ucs.core.beans;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ArticleData {
     private String title;
+
+    @JsonProperty("abstract")
     private String description;
+
     private String image;
-    private String link;
+
+    @JsonProperty("link")
+    private String pageName;
+
     private List<String> tags;
 
     // public ArticleData(String title, String description, String image, String
@@ -42,12 +50,12 @@ public class ArticleData {
         this.image = image;
     }
 
-    public String getLink() {
-        return link;
+    public String getPageName() {
+        return pageName;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setPageName(String link) {
+        this.pageName = link;
     }
 
     public List<String> getTags() {

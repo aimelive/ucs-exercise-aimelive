@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -18,11 +19,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.aimelive.ucs.core.beans.ArticleData;
+import com.aimelive.ucs.core.utils.HelperUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Component(service = { Servlet.class })
 @SlingServletResourceTypes(resourceTypes = "cq:Page", methods = "GET", extensions = "json", selectors = "export")
-public class ArticleExportServlet extends SlingSafeMethodsServlet {
+public class JsonExportServlet extends SlingSafeMethodsServlet {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
@@ -40,8 +42,9 @@ public class ArticleExportServlet extends SlingSafeMethodsServlet {
             articleData.setTitle(text);
             articleData.setDescription(description);
             articleData.setImage(picture);
-            articleData.setTags(Arrays.asList(tags));
-            articleData.setLink((resource.getPath().substring(0, resource.getPath().lastIndexOf("/")) + ".html"));
+            articleData.setTags(Arrays.asList(tags).stream().map(tag -> HelperUtils.extractStringTag(tag))
+                    .collect(Collectors.toList()));
+            articleData.setPageName((resource.getPath().substring(0, resource.getPath().lastIndexOf("/")) + ".html"));
 
             ObjectMapper objectMapper = new ObjectMapper();
             String json = objectMapper.writeValueAsString(articleData);
