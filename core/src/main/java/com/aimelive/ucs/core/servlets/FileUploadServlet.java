@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.jcr.Session;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.Part;
@@ -55,7 +56,7 @@ public class FileUploadServlet extends SlingAllMethodsServlet {
                 ResourceResolver resolver = request.getResourceResolver();
 
                 Map<String, String> responseArticles = ArticlesImportService.createArticlesFromCsv(resolver,
-                        fileAsset.getPath(), lastExecutionTime);
+                        fileAsset.getPath(), lastExecutionTime, true);
 
                 responseData.put("skippedArticles", responseArticles.get("skippedArticles"));
                 responseData.put("createdArticles", responseArticles.get("createdArticles"));
@@ -64,7 +65,7 @@ public class FileUploadServlet extends SlingAllMethodsServlet {
                 ResourceResolver resolver = request.getResourceResolver();
 
                 Map<String, String> responseArticles = ArticlesImportService.createArticlesFromCsv(resolver,
-                        CSV_FILE, lastExecutionTime);
+                        CSV_FILE, lastExecutionTime, false);
 
                 responseData.put("skippedArticles", responseArticles.get("skippedArticles"));
                 responseData.put("createdArticles", responseArticles.get("createdArticles"));
@@ -72,7 +73,7 @@ public class FileUploadServlet extends SlingAllMethodsServlet {
             lastExecutionTime = new Date();
             responseData.put("latestExecutionTime", lastExecutionTime.toString());
         } catch (Exception e) {
-            logger.debug("ERROR ===== {}", e.getCause());
+            logger.debug("ERROR ===== {}", e);
 
             responseData.put("message", "Something went wrong, please try again later.");
             responseData.put("error", e.getMessage());

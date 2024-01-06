@@ -1,13 +1,14 @@
 package com.aimelive.ucs.core.services;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.jcr.PathNotFoundException;
+import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 import org.apache.sling.api.resource.Resource;
@@ -21,9 +22,10 @@ import com.day.cq.wcm.api.PageManager;
 
 public class ArticlesImportService {
     private static Logger logger = LoggerFactory.getLogger(ArticlesImportService.class);
+    private static final String IMPORT_ARTICLES_PAGE_PATH = "/apps/ucs-exercise-aimelive/components/custom/articles-import";
 
     public static Map<String, String> createArticlesFromCsv(ResourceResolver resolver, String filePath,
-            Date latestExecutionTime) {
+            Date latestExecutionTime, boolean isManual) throws PathNotFoundException, RepositoryException {
         Map<String, String> responseData = new HashMap<>();
 
         // ----------------------------------------------------------------
@@ -33,7 +35,7 @@ public class ArticlesImportService {
         }
         Date lastModified = resource.getChild("jcr:content").getValueMap().get("jcr:lastModified", Date.class);
 
-        if (latestExecutionTime != null && lastModified.before(latestExecutionTime)) {
+        if (latestExecutionTime != null && lastModified != null && lastModified.before(latestExecutionTime)) {
 
             throw new IllegalArgumentException("Execution skipped because no modification has made to the file.");
         }
@@ -48,7 +50,10 @@ public class ArticlesImportService {
             ArticleData articleData = HelperUtils.convertToArticleData(line);
             articles.add(articleData);
         }
-        logger.debug("RECORD PROCESSING");
+        //
+
+        logger.debug("RECORD PROCESSING {} ARTICLES", articles.size());
+
         int skippedArticles = HelperUtils.createPages(resolver.adaptTo(PageManager.class),
                 resolver.adaptTo(Session.class), articles);
         logger.debug("STOP");

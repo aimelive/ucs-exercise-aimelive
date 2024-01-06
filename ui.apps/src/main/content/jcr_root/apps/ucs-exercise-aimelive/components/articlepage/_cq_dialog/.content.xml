@@ -46,18 +46,18 @@
                                                 mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                                 multiple="{Boolean}false"
                                                 name="./file"
+                                                required="{Boolean}true"
+                                                rootPath="/content/dam/ucs-exercise-aimelive"
                                                 title="Add an article picture"
                                                 uploadUrl="${suffix.path}"
-                                                useHTML5="{Boolean}true"
-                                                required="{Boolean}true"
-                                                rootPath="/content/dam/ucs-exercise-aimelive"/> 
+                                                useHTML5="{Boolean}true"/>
                                             <articletitle
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldLabel="Article Title"
                                                 name="./articleTitle"
                                                 required="{Boolean}true"/>
-                                             <articleDate
+                                            <articleDate
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
                                                 displayedFormat="dddd MMMM Do YYYY"
@@ -65,17 +65,15 @@
                                                 name="./articleDate"
                                                 required="{Boolean}true"
                                                 type="date"
-                                                value="2023-01-01"
-                                            />
+                                                value="2023-01-01"/>
                                             <articleTags
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/coral/common/form/tagfield"
                                                 fieldLabel="Article Tags"
                                                 multiple="{Boolean}true"
                                                 name="./articleTags"
-                                                rootPath="/content/cq:tags/ucs-exercise-aimelive/magazine"
-                                                required="{Boolean}true"/>
-                                                 
+                                                required="{Boolean}true"
+                                                rootPath="/content/cq:tags/ucs-exercise-aimelive/magazine"/>
                                         </items>
                                     </section>
                                 </items>

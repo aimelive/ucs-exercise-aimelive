@@ -39,45 +39,45 @@
                         name="./closeLabel"
                         required="{Boolean}true"/>
                     <orderBy
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                            fieldLabel="Order Articles By"
-                            name="./orderBy">
-                            <items jcr:primaryType="nt:unstructured">
-                                <lastModified
-                                    jcr:primaryType="nt:unstructured"
-                                    text="Last Modified Date"
-                                    value="cq:lastModified"/>
-                                <createdDate
-                                    jcr:primaryType="nt:unstructured"
-                                    text="Created Date"
-                                    value="jcr:created"/>
-                                <articleDate
-                                    jcr:primaryType="nt:unstructured"
-                                    text="Article Date"
-                                    value="articleDate"/>
-                                <articleTitle
-                                    jcr:primaryType="nt:unstructured"
-                                    text="Article Title"
-                                    value="articleTitle"/>
-                            </items>
-                        </orderBy>    
-                        <sortBy
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                            fieldLabel="Sort By"
-                            name="./sortBy">
-                            <items jcr:primaryType="nt:unstructured">
-                                <desc
-                                    jcr:primaryType="nt:unstructured"
-                                    text="DESC"
-                                    value="desc"/>
-                                <asc
-                                    jcr:primaryType="nt:unstructured"
-                                    text="ASC"
-                                    value="asc"/>
-                            </items>
-                        </sortBy>    
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="Order Articles By"
+                        name="./orderBy">
+                        <items jcr:primaryType="nt:unstructured">
+                            <lastModified
+                                jcr:primaryType="nt:unstructured"
+                                text="Last Modified Date"
+                                value="cq:lastModified"/>
+                            <createdDate
+                                jcr:primaryType="nt:unstructured"
+                                text="Created Date"
+                                value="jcr:created"/>
+                            <articleDate
+                                jcr:primaryType="nt:unstructured"
+                                text="Article Date"
+                                value="articleDate"/>
+                            <articleTitle
+                                jcr:primaryType="nt:unstructured"
+                                text="Article Title"
+                                value="articleTitle"/>
+                        </items>
+                    </orderBy>
+                    <sortBy
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="Sort By"
+                        name="./sortBy">
+                        <items jcr:primaryType="nt:unstructured">
+                            <desc
+                                jcr:primaryType="nt:unstructured"
+                                text="DESC"
+                                value="desc"/>
+                            <asc
+                                jcr:primaryType="nt:unstructured"
+                                text="ASC"
+                                value="asc"/>
+                        </items>
+                    </sortBy>
                 </items>
             </column>
         </items>
