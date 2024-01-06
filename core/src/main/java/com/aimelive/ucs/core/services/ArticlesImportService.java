@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.jcr.Node;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
@@ -22,7 +23,7 @@ import com.day.cq.wcm.api.PageManager;
 
 public class ArticlesImportService {
     private static Logger logger = LoggerFactory.getLogger(ArticlesImportService.class);
-    private static final String IMPORT_ARTICLES_PAGE_PATH = "/apps/ucs-exercise-aimelive/components/custom/articles-import";
+    public static final String IMPORT_ARTICLES_PAGE_PATH = "/apps/ucs-exercise-aimelive/components/custom/articles-import";
 
     public static Map<String, String> createArticlesFromCsv(ResourceResolver resolver, String filePath,
             Date latestExecutionTime, boolean isManual) throws PathNotFoundException, RepositoryException {
@@ -55,7 +56,8 @@ public class ArticlesImportService {
         logger.debug("RECORD PROCESSING {} ARTICLES", articles.size());
 
         int skippedArticles = HelperUtils.createPages(resolver.adaptTo(PageManager.class),
-                resolver.adaptTo(Session.class), articles);
+                resolver.adaptTo(Session.class), articles,
+                resolver.getResource(IMPORT_ARTICLES_PAGE_PATH).adaptTo(Node.class).getNode("jcr:content"), isManual);
         logger.debug("STOP");
         logger.debug("SKIPPED ARTICLES: {} ", skippedArticles);
         logger.debug("CREATED ARTICLES: {} ", articles.size() - skippedArticles);

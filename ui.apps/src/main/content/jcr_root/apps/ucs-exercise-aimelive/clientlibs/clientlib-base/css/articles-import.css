@@ -14,6 +14,9 @@
 .loading--hide {
   display: none !important;
 }
+.resultProgress {
+  display: inline !important;
+}
 @keyframes rotate {
   from {
     transform: rotate(0deg);

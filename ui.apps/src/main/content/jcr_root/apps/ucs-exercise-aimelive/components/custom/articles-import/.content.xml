@@ -5,7 +5,7 @@
         jcr:primaryType="nt:unstructured"
         jcr:title="Articles Import Tool"
         sling:resourceType="granite/ui/components/shell/page"
-        consoleId="excel-upload">
+        consoleId="articles-import">
         <head jcr:primaryType="nt:unstructured">
             <clientlibs
                 jcr:primaryType="nt:unstructured"
@@ -89,6 +89,11 @@
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/field"
                                                             fieldLabel=""
                                                             wrapperClass="loading loading--hide"/>
+                                                        <resultProgress
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/field"
+                                                            fieldLabel=""
+                                                            wrapperClass="resultProgress"/>
                                                         <resultMessage
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/field"

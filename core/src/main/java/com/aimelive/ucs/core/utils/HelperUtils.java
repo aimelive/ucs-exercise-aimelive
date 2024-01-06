@@ -8,14 +8,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 import org.apache.sling.api.resource.Resource;
 
 import com.aimelive.ucs.core.beans.ArticleData;
-import com.day.cq.commons.date.DateUtil;
 import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.Rendition;
 import com.day.text.csv.Csv;
@@ -51,10 +49,25 @@ public class HelperUtils {
         }
     }
 
-    public static int createPages(PageManager pageManager, Session session, List<ArticleData> articles) {
+    public static int createPages(PageManager pageManager, Session session, List<ArticleData> articles,
+            Node importArticlesNode, boolean isManual) {
         try {
+            if (isManual) {
+                importArticlesNode.setProperty("totalRows", articles.size());
+                importArticlesNode.setProperty("processedRows", 0);
+                importArticlesNode.setProperty("skippedRows", 0);
+                session.save();
+            }
             int skippedArticles = 0;
+            int processedRows = 0;
+
             for (ArticleData articleData : articles) {
+                if (isManual) {
+                    importArticlesNode.setProperty("processedRows", ++processedRows);
+                    importArticlesNode.setProperty("skippedRows", skippedArticles);
+                    session.save();
+                }
+
                 Page existPage = pageManager.getPage(PARENT_PATH + articleData.getPageName());
                 if (existPage != null) {
                     ++skippedArticles;

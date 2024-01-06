@@ -39,6 +39,18 @@ $(document).ready(function () {
 
       $(".loading").removeClass("loading--hide").addClass("loading--show");
       $(".result label").hide();
+      $(".resultProgress label").show();
+
+      const intervalId = setInterval(function () {
+        $.ajax({
+          url: `/bin/servlets/articles/import/progress`,
+          type: "GET",
+          cache: false,
+          success: function (data) {
+            $(".resultProgress label").text(`${data.progress}`);
+          },
+        });
+      }, 100);
 
       $.ajax({
         type: "POST",
@@ -59,6 +71,8 @@ $(document).ready(function () {
           $(".result label").show();
           $(".loading").removeClass("loading--show").addClass("loading--hide");
           $("#btnSubmit").prop("disabled", false);
+          $(".resultProgress label").hide();
+          clearInterval(intervalId);
           // }, 5000);
         },
         error: function (e) {
@@ -67,15 +81,8 @@ $(document).ready(function () {
           $(".result label").show();
           $(".loading").removeClass("loading--show").addClass("loading--hide");
           $("#btnSubmit").prop("disabled", false);
+          $(".resultProgress label").hide();
         },
-        // xhr: function () {
-        //   // var xhr = $.ajaxSettings.xhr();
-        //   // // set the onprogress event handler
-        //   // xhr.upload.onprogress = function (evt) {
-        //   //   let percentComplete = (evt.loaded / evt.total) * 100 + "%";
-        //   //   console.log(percentComplete);
-        //   // };
-        // },
       });
     } else {
       alert("Please choose a file to continue...");
